@@ -3,8 +3,8 @@ let scanner;
 async function startScanning() {
     try {
         const options = {
-            filters: [{ services: ['ff000000-0000-0000-0000-000000000014'] }],
-            //acceptAllAdvertisements: true,
+            //filters: [{ services: ['ff000000-0000-0000-0000-000000000014'] }],
+            acceptAllAdvertisements: true,
             keepRepeatedDevices: true
         };
         scanner = await navigator.bluetooth.requestLEScan(options);
