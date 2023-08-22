@@ -5,7 +5,7 @@ const SCAN_OPTIONS = {
     keepRepeatedDevices: true
 };
 
-function startDeviceScanner() {
+function startScanning() {
 
     navigator.bluetooth.requestLEScan(SCAN_OPTIONS)
         .then(scanner => {
