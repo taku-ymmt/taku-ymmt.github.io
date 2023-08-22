@@ -3,7 +3,7 @@ let scanner;
 async function startScanning() {
     try {
         const options = {
-            //filters: [{ services: ['ff000000-0000-0000-0000-000000000014'] }],
+            filters: [{ services: ['ff000000-0000-0000-0000-000000000014'] }],
             acceptAllAdvertisements: true,
             keepRepeatedDevices: true
         };
