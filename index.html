@@ -1,11 +1,19 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>iBeacon Receiver</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
-    <h1>Test</h1>
+    <button id="startScanButton">Start iBeacon Scan</button>
+    <div id="output">
+        <p>iBeacon UUID: <span id="uuid"></span></p>
+        <p>Major: <span id="major"></span></p>
+        <p>Minor: <span id="minor"></span></p>
+        <p>Tx Power: <span id="txPower"></span></p>
+    </div>
+    <script src="js/script.js"></script>
 </body>
 </html>
