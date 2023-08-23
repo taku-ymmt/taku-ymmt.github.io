@@ -6,7 +6,8 @@ const SCAN_OPTIONS = {
 };
 
 function startScanning() {
-
+    alert("button push");
+    
     navigator.bluetooth.requestLEScan(SCAN_OPTIONS)
         .then(scanner => {
             alert("success");
