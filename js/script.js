@@ -1,5 +1,9 @@
 let scanner;
 
+// iBeacon data
+const companyId = 0x004C;
+const manufacturerDataValuePrefix = "02";
+
 const SCAN_OPTIONS = {
     //filters: [{ services: ['ff000000-0000-0000-0000-000000000014'] }],
     //filters: [{ services: ['00001801-0000-1000-8000-00805f9b34fb'] }],
@@ -26,6 +30,7 @@ function startScanning() {
             console.log(scanner.active);
 
             navigator.bluetooth.addEventListener('advertisementreceived', event => {
+                /*
                 const data = event.advertisement.manufacturerData;
                 if (data && data.byteLength >= 25) {
                     const uuid = byteArrayToHexString(data.slice(4, 20));
@@ -34,6 +39,21 @@ function startScanning() {
                     const txPower = data.getInt8(24);
 
                     displayiBeaconData(uuid, major, minor, txPower);
+                }
+                */
+                let manuData = event. manufacturerData;
+
+                for (var [key, value] of manuData) {
+                    var manufacturerDataValue_changedHex = "";
+                    for (var i = 0; i < value.byteLength; i++) {
+                        if (value.getUint8(i) < 0x0f) manufacturerDataValue_changedHex += "0";
+                            manufacturerDataValue_changedHex += value.getUint8(i).toString(16);
+                        }
+
+                    // narrow down to iBeacon
+                    if (key === companyId  &&  manufacturerDataValue_changedHex.slice(0, 2) === manufacturerDataValuePrefix) {
+                        alert("iBeacon");
+                    }
                 }
             });
 
