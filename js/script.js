@@ -1,6 +1,7 @@
 let scanner;
 
 const SCAN_OPTIONS = {
+    filters: [{ services: ['ff000000-0000-0000-0000-000000000014'] }],
     acceptAllAdvertisements: true,
     //keepRepeatedDevices: true
 };
@@ -25,17 +26,14 @@ function startScanning() {
 
             navigator.bluetooth.addEventListener('advertisementreceived', event => {
 
-                console.log("test");
-                /* Display device data */
-                let deviceData = event.device;
+                const data = event.advertisement.manufacturerData;
+                if (data && data.byteLength >= 25) {
+                    const uuid = byteArrayToHexString(data.slice(4, 20));
+                    const major = data.getUint16(20, false);
+                    const minor = data.getUint16(22, false);
+                    const txPower = data.getInt8(24);
 
-                if (document.getElementById(deviceData.id)) {
-                    //update the device data displayed
-                    updataDeviceData(deviceData);
-
-                } else {
-                    //insert device data
-                    insertDeviceData(deviceData);
+                    displayiBeaconData(uuid, major, minor, txPower);
                 }
             });
 
