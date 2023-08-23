@@ -47,8 +47,9 @@ function startScanning() {
                     var manufacturerDataValue_changedHex = "";
                     for (var i = 0; i < value.byteLength; i++) {
                         if (value.getUint8(i) < 0x0f) manufacturerDataValue_changedHex += "0";
-                            manufacturerDataValue_changedHex += value.getUint8(i).toString(16);
-                        }
+                        manufacturerDataValue_changedHex += value.getUint8(i).toString(16);
+                    }
+                    console.log("["+ key + ", " + manufacturerDataValue_changedHex + "]");
 
                     // narrow down to iBeacon
                     if (key === companyId  &&  manufacturerDataValue_changedHex.slice(0, 2) === manufacturerDataValuePrefix) {
