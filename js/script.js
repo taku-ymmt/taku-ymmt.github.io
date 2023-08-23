@@ -2,12 +2,12 @@ let scanner;
 
 const SCAN_OPTIONS = {
     acceptAllAdvertisements: true,
-    keepRepeatedDevices: true
+    //keepRepeatedDevices: true
 };
 
 function startScanning() {
     alert("button push");
-    
+
     navigator.bluetooth.requestLEScan(SCAN_OPTIONS)
         .then(scanner => {
             alert("success");
