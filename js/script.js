@@ -9,7 +9,7 @@ function startScanning() {
 
     navigator.bluetooth.requestLEScan(SCAN_OPTIONS)
         .then(scanner => {
-
+            alert("success");
             console.log(scanner.active);
 
             navigator.bluetooth.addEventListener('advertisementreceived', event => {
@@ -29,7 +29,10 @@ function startScanning() {
             });
 
     })
-        .catch(error => { console.log(error); });
+        .catch(error => { 
+            alert("error");
+            console.log(error); 
+        });
 
 }
 
