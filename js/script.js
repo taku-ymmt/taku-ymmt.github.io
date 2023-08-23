@@ -8,6 +8,14 @@ const SCAN_OPTIONS = {
 function startScanning() {
     alert("button push");
 
+    navigator.bluetooth.addEventListener('advertisementreceived', event => {
+        console.log("test");
+        /* Display device data */
+        let deviceData = event.device;
+        console.log(deviceData)
+    });
+
+    /*
     navigator.bluetooth.requestLEScan(SCAN_OPTIONS)
         .then(scanner => {
             alert("success");
@@ -16,7 +24,7 @@ function startScanning() {
             navigator.bluetooth.addEventListener('advertisementreceived', event => {
 
                 console.log("test");
-                /* Display device data */
+                /* Display device data 
                 let deviceData = event.device;
 
                 if (document.getElementById(deviceData.id)) {
@@ -29,11 +37,12 @@ function startScanning() {
                 }
             });
 
-    })
+        })
         .catch(error => { 
             alert("error");
             console.log(error); 
         });
+    */
 
 }
 
