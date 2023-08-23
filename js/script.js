@@ -26,8 +26,6 @@ function startScanning() {
             console.log(scanner.active);
 
             navigator.bluetooth.addEventListener('advertisementreceived', event => {
-                alert("event");
-
                 const data = event.advertisement.manufacturerData;
                 if (data && data.byteLength >= 25) {
                     const uuid = byteArrayToHexString(data.slice(4, 20));
