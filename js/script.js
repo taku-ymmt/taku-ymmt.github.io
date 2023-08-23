@@ -2,7 +2,7 @@ let scanner;
 
 const SCAN_OPTIONS = {
     filters: [{ services: ['ff000000-0000-0000-0000-000000000014'] }],
-    acceptAllAdvertisements: true,
+    //acceptAllAdvertisements: true,
     //keepRepeatedDevices: true
 };
 
@@ -25,6 +25,7 @@ function startScanning() {
             console.log(scanner.active);
 
             navigator.bluetooth.addEventListener('advertisementreceived', event => {
+                alert("event");
 
                 const data = event.advertisement.manufacturerData;
                 if (data && data.byteLength >= 25) {
