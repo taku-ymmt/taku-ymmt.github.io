@@ -1,8 +1,8 @@
 let scanner;
 
 const SCAN_OPTIONS = {
-    filters: [{ services: ['ff000000-0000-0000-0000-000000000014'] }],
-    //acceptAllAdvertisements: true,
+    //filters: [{ services: ['ff000000-0000-0000-0000-000000000014'] }],
+    acceptAllAdvertisements: true,
     //keepRepeatedDevices: true
 };
 
