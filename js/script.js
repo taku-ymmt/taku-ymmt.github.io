@@ -1,14 +1,14 @@
 let scanner;
 
 // iBeacon data
-const companyId = 0x004C;
+const companyId = 0x4C;
 const manufacturerDataValuePrefix = "02";
 
 const SCAN_OPTIONS = {
     //filters: [{ services: ['ff000000-0000-0000-0000-000000000014'] }],
     //filters: [{ services: ['00001801-0000-1000-8000-00805f9b34fb'] }],
     acceptAllAdvertisements: true,
-    //keepRepeatedDevices: true
+    keepRepeatedDevices: true
 };
 
 function startScanning() {
